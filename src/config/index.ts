@@ -12,6 +12,9 @@ type Config = {
   FRONTEND_URL?: string;
   GOOGLE_CLIENT_ID?: string;
   GOOGLE_CLIENT_SECRET?: string;
+  CLOUDINARY_NAME?: string;
+  CLOUDINARY_KEY?: string;
+  CLOUDINARY_SECRET?: string;
 };
 
 const config: Config = {
@@ -25,6 +28,9 @@ const config: Config = {
   FRONTEND_URL: process.env.FRONTEND_URL!,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID!,
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET!,
+  CLOUDINARY_NAME: process.env.CLOUDINARY_NAME!,
+  CLOUDINARY_KEY: process.env.CLOUDINARY_KEY!,
+  CLOUDINARY_SECRET: process.env.CLOUDINARY_SECRET!,
 };
 
 export default config;

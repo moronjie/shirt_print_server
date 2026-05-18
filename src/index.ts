@@ -1,4 +1,5 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import { errorHandler } from './middleware/errorHandler';
 import { connectDB } from './config/db/connect';
 import mongoose from 'mongoose';
@@ -8,6 +9,8 @@ import { toNodeHandler } from 'better-auth/node';
 import { createAuth } from './utils/auth';
 import productsRouter from './router/products.router';
 import orderRouter from './router/order.router';
+import uploadRouter from './router/upload.router';
+import designManagementRouter from './router/designManagement.router';
 
 const app = express();
 const PORT = config.PORT || 5000;
@@ -20,12 +23,15 @@ app.use(
   }),
 );
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/products', productsRouter);
 app.use('/api/orders', orderRouter);
+app.use('/api/upload', uploadRouter);
+app.use('/api/designs', designManagementRouter);
 
 // Error Handling Middleware
 app.use(errorHandler);
